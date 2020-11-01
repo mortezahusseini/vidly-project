@@ -1,17 +1,23 @@
+import React, { useState } from 'react';
+
 import MyInput from './my-input'
 
 const Messages = () => {
-    let messages = [
+    let staticMessages = [
         { id: 0, content: 'سلام اصغر' },
         { id: 1, content: 'سلام نیلو' },
         { id: 2, content: 'سلام مری' },
         { id: 3, content: 'سلام اصی' },
         { id: 4, content: 'سلام ممد' },
-    ]
+]
+    const [messages, setMessages] = useState(staticMessages)
 
-    const addMessageHandler = event => {
+    // setMessages(staticMessages)
+    const addMessageHandler = value => {
         let newMessages = [...messages]
-        newMessages.push({id: 14, content: event})
+        newMessages.push({id: 14, content: value})
+        setMessages(newMessages)
+        console.log(messages);
     }
 
     return ( 
